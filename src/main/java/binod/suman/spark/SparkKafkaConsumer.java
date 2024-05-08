@@ -34,14 +34,14 @@ public class SparkKafkaConsumer {
 
 		Map<String, String> kafkaParams = new HashMap<>();
 		kafkaParams.put("metadata.broker.list", "localhost:9092");
-		Set<String> topics = Collections.singleton("demo10");
+		Set<String> topics = Collections.singleton("test1");
 
 		JavaPairInputDStream<String, String> directKafkaStream = KafkaUtils.createDirectStream(ssc, String.class,
 				String.class, StringDecoder.class, StringDecoder.class, kafkaParams, topics);
 
 		  List<String> allRecord = new ArrayList<String>();
 		  final String COMMA = ",";
-		  
+
 		  directKafkaStream.foreachRDD(rdd -> {
 			  
 		  System.out.println("New data arrived  " + rdd.partitions().size() +" Partitions and " + rdd.count() + " Records");
