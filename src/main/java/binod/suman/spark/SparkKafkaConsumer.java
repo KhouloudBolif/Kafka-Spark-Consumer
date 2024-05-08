@@ -53,25 +53,25 @@ public class SparkKafkaConsumer {
 					  System.out.println(rawRecord._2);
 					  String record = rawRecord._2();
 					 StringTokenizer st = new StringTokenizer(record,",");
-					  
-					  StringBuilder sb = new StringBuilder(); 
+					allRecord.add(record);
+					  StringBuilder sb = new StringBuilder();
 					 /*  while(st.hasMoreTokens()) {
-						String step = st.nextToken(); // Maps a unit of time in the real world. In this case 1 step is 1 hour of time. 
-						String type = st.nextToken(); // CASH-IN,CASH-OUT, DEBIT, PAYMENT and TRANSFER 
-						String amount = st.nextToken(); //amount of the transaction in local currency 
-						String nameOrig = st.nextToken(); //  customerID who started the transaction 
-						String oldbalanceOrg = st.nextToken(); // initial balance before the transaction 
+						String step = st.nextToken(); // Maps a unit of time in the real world. In this case 1 step is 1 hour of time.
+						String type = st.nextToken(); // CASH-IN,CASH-OUT, DEBIT, PAYMENT and TRANSFER
+						String amount = st.nextToken(); //amount of the transaction in local currency
+						String nameOrig = st.nextToken(); //  customerID who started the transaction
+						String oldbalanceOrg = st.nextToken(); // initial balance before the transaction
 						String newbalanceOrig = st.nextToken(); // customer's balance after the transaction.
-						String nameDest = st.nextToken(); // recipient ID of the transaction. 
-						String oldbalanceDest = st.nextToken(); // initial recipient balance before the transaction. 
-						String newbalanceDest = st.nextToken(); // recipient's balance after the transaction. 
-						String isFraud = st.nextToken(); // dentifies a fraudulent transaction (1) and non fraudulent (0) 
+						String nameDest = st.nextToken(); // recipient ID of the transaction.
+						String oldbalanceDest = st.nextToken(); // initial recipient balance before the transaction.
+						String newbalanceDest = st.nextToken(); // recipient's balance after the transaction.
+						String isFraud = st.nextToken(); // dentifies a fraudulent transaction (1) and non fraudulent (0)
 						String isFlaggedFraud = st.nextToken(); // flags illegal attempts to transfer more than 200.000 in a single transaction.
 					    // Keep only interested columnn in Master Data set.
 						sb.append(step).append(COMMA).append(type).append(COMMA).append(amount).append(COMMA).append(oldbalanceOrg).append(COMMA).append(newbalanceOrig).append(COMMA).append(oldbalanceDest).append(COMMA).append(newbalanceDest).append(COMMA).append(isFraud);
 						allRecord.add(sb.toString());
 					  }*/
-					  
+
 				  });
 				System.out.println("All records OUTER MOST :"+allRecord.size()); 
 				FileWriter writer = new FileWriter("Master_dataset.csv");
