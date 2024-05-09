@@ -52,7 +52,7 @@ public class SparkKafkaConsumer {
 
 		Map<String, String> kafkaParams = new HashMap<>();
 		kafkaParams.put("metadata.broker.list", "localhost:9092");
-		Set<String> topics = Collections.singleton("test1");
+		Set<String> topics = Collections.singleton("test10");
 
 		JavaPairInputDStream<String, String> directKafkaStream = KafkaUtils.createDirectStream(ssc, String.class,
 				String.class, StringDecoder.class, StringDecoder.class, kafkaParams, topics);
